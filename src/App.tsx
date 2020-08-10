@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { gql, useSubscription } from '@apollo/client'
 import { Message } from './interfaces/Message'
 
