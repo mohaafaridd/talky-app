@@ -11,7 +11,7 @@ import { getMainDefinition } from '@apollo/client/utilities'
 
 export const Apollo: FC = ({ children }) => {
   const wsLink = new WebSocketLink({
-    uri: `ws://${process.env.REACT_APP_API_URL}/`,
+    uri: `ws://${process.env.REACT_APP_API_URL}/graphql`,
     options: {
       reconnect: true,
     },
