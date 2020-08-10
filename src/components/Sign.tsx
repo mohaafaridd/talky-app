@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import UserContext from '../context/userContext'
 
 export const Sign = () => {
-  const { user, signUser } = useContext(UserContext)
+  const { signUser } = useContext(UserContext)
   const [name, setName] = useState('')
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
