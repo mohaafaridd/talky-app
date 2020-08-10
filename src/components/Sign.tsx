@@ -15,6 +15,7 @@ export const Sign = () => {
 
   return (
     <form onSubmit={onSubmit} id='sign-form'>
+      <h1>Talky.</h1>
       <input
         autoFocus
         type='text'

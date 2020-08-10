@@ -1,7 +1,7 @@
 #message-form {
   @apply m-auto p-5 border rounded-lg w-full;
   @apply flex flex-col;
-
+  @apply bg-white;
   .inputs {
     @apply flex gap-2;
   }

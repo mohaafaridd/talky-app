@@ -4,6 +4,7 @@
   @apply flex flex-col gap-2;
 
   #chat {
+    @apply bg-white;
     @apply h-full w-full;
     @apply mx-auto overflow-y-scroll;
     @apply flex flex-col gap-2;

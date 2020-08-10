@@ -7,14 +7,11 @@ export const SubmitMessage = () => {
   const { user } = useContext(UserContext)
   const [createMessage, { loading }] = useMutation(MESSAGE_MUTATION)
   const [message, setMessage] = useState('')
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value)
   }
 
-  const onSubmit = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
       const variables = {
@@ -28,7 +25,7 @@ export const SubmitMessage = () => {
   }
 
   return (
-    <form id='message-form'>
+    <form id='message-form' onSubmit={onSubmit}>
       <div className='inputs'>
         <input
           disabled={loading}
@@ -38,7 +35,6 @@ export const SubmitMessage = () => {
           value={message}
           onChange={onChange}
         />
-        <button onClick={onSubmit}>Submit</button>
       </div>
       {message && <small>Press ENTER to send</small>}
     </form>

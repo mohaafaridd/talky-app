@@ -1,6 +1,11 @@
 #sign-form {
+  @apply bg-white;
   @apply m-auto p-5 border rounded-lg shadow-xl w-full;
   @apply flex flex-col;
+
+  h1 {
+    @apply font-semibold text-center text-xl p-8;
+  }
 
   input {
     @apply rounded-lg shadow border px-4 py-2 w-full;
