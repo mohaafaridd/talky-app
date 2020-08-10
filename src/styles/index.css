@@ -1,5 +1,8 @@
-@tailwind base;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './sign.css';
 
-@tailwind components;
-
-@tailwind utilities;
+#app {
+  @apply min-h-screen flex p-5;
+}

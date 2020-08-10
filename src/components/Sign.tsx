@@ -14,13 +14,15 @@ export const Sign = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} id='sign-form'>
       <input
+        autoFocus
         type='text'
-        placeholder='Select a name to enter the chat'
+        placeholder='Select a username'
         value={name}
         onChange={onChange}
       />
+      {name && <small>Press ENTER to proceed</small>}
     </form>
   )
 }

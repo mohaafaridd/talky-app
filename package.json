@@ -11,8 +11,12 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "autoprefixer": "^9.8.6",
     "graphql": "^15.3.0",
     "moment": "^2.27.0",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.3",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -22,11 +26,13 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "tailwind": "npx tailwindcss build ./src/styles/index.css -o ./src/styles/output.css",
+    "build:style": "postcss src/styles/index.css -o src/styles/output.css",
+    "watch:style": "postcss src/styles/index.css -o src/styles/output.css -w",
     "start": "react-scripts start",
     "build": "yarn tailwind && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently npm:start npm:watch:style"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,5 +53,8 @@
     "jsxSingleQuote": true,
     "semi": false,
     "singleQuote": true
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }
