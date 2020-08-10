@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery, useSubscription } from '@apollo/client'
-import { Message } from '../interfaces/Message'
+import { Message as IMessage } from '../interfaces/Message'
 import { MESSAGE_QUERY } from '../graphql/queries'
 import { MESSAGE_SUBSCRIPTION } from '../graphql/subscriptions'
+import { Message } from './Message'
 
 export const Chat = () => {
-  const [chat, setChat] = useState<Message[]>([])
+  const [chat, setChat] = useState<IMessage[]>([])
   const { data, loading: qLoading } = useQuery(MESSAGE_QUERY)
   const { data: sData } = useSubscription(MESSAGE_SUBSCRIPTION)
 
@@ -26,7 +27,7 @@ export const Chat = () => {
   return (
     <ol>
       {chat.map((message) => (
-        <li key={message.id}>{message.message}</li>
+        <Message key={message.id} message={message} />
       ))}
     </ol>
   )
