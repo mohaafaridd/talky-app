@@ -25,7 +25,7 @@ export const Chat = () => {
   if (qLoading) return <h4>loading</h4>
 
   return (
-    <ol>
+    <ol id='chat'>
       {chat.map((message) => (
         <Message key={message.id} message={message} />
       ))}

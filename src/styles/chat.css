@@ -1,0 +1,13 @@
+#chat {
+  @apply min-h-full;
+  @apply mx-auto overflow-y-scroll;
+  @apply flex flex-col gap-2;
+  @apply border shadow-xl rounded-lg;
+  @apply p-5;
+}
+
+@screen md {
+  #chat {
+    @apply w-1/4;
+  }
+}
