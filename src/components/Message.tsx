@@ -9,10 +9,14 @@ interface MessageProps {
 export const Message = (props: MessageProps) => {
   const { message } = props
   return (
-    <li>
-      <small>{message.sender}</small>
-      <small>{moment(message.createDate).format('LTS')}</small>
-      <p>{message.message}</p>
+    <li className='message'>
+      <div className='data'>
+        <small className='sender'>{message.sender}</small>
+        <small className='date'>
+          {moment(message.createDate).format('LTS')}
+        </small>
+      </div>
+      <p className='content'>{message.message}</p>
     </li>
   )
 }

@@ -1,0 +1,21 @@
+.message {
+  @apply rounded border p-4;
+  @apply flex flex-col gap-2;
+
+  .data {
+    @apply flex flex-col gap-1;
+    .sender {
+      @apply font-semibold tracking-wide;
+      @apply transition-all duration-200 ease-in-out;
+      @apply cursor-default;
+
+      &:hover {
+        @apply text-blue-500;
+      }
+    }
+
+    .date {
+      @apply text-gray-500 text-xs;
+    }
+  }
+}

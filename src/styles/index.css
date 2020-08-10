@@ -3,6 +3,7 @@
 @import 'tailwindcss/utilities';
 @import './sign.css';
 @import './chat.css';
+@import './message.css';
 
 #app {
   @apply min-h-screen flex p-5 max-h-screen;
