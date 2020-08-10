@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useQuery, useSubscription } from '@apollo/client'
+import { motion } from 'framer-motion'
 import { Message as IMessage } from '../interfaces/Message'
 import { MESSAGE_QUERY } from '../graphql/queries'
 import { MESSAGE_SUBSCRIPTION } from '../graphql/subscriptions'
@@ -33,14 +34,19 @@ export const Chat = () => {
 
   if (qLoading) return <h4>loading</h4>
 
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  }
+
   return (
     <div id='chat-wrapper'>
-      <ol id='chat'>
+      <motion.ol id='chat'>
         {chat.map((message) => (
           <Message key={message.id} message={message} />
         ))}
         <div ref={messagesEndRef} />
-      </ol>
+      </motion.ol>
 
       <SubmitMessage />
     </div>
