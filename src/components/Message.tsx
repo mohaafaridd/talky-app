@@ -19,7 +19,7 @@ export const Message = (props: MessageProps) => {
         opacity: 0,
         x: '-100%',
       }}
-      transition={{ duration: 0.5, delay: message.id * 0.05 }}
+      transition={{ duration: 0.5 }}
       className='message'
     >
       <div className='data'>
