@@ -4,6 +4,7 @@ import { Message as IMessage } from '../interfaces/Message'
 import { MESSAGE_QUERY } from '../graphql/queries'
 import { MESSAGE_SUBSCRIPTION } from '../graphql/subscriptions'
 import { Message } from './Message'
+import { SubmitMessage } from './SubmitMessage'
 
 export const Chat = () => {
   const [chat, setChat] = useState<IMessage[]>([])
@@ -25,10 +26,13 @@ export const Chat = () => {
   if (qLoading) return <h4>loading</h4>
 
   return (
-    <ol id='chat'>
-      {chat.map((message) => (
-        <Message key={message.id} message={message} />
-      ))}
-    </ol>
+    <div id='chat-wrapper'>
+      <ol id='chat'>
+        {chat.map((message) => (
+          <Message key={message.id} message={message} />
+        ))}
+      </ol>
+      <SubmitMessage />
+    </div>
   )
 }
