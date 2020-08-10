@@ -1,20 +1,19 @@
 #chat-wrapper {
   @apply max-h-full w-full;
   @apply mx-auto;
-  @apply grid gap-2;
-  @apply border shadow-xl rounded-lg;
+  @apply flex flex-col gap-2;
 
   #chat {
     @apply h-full w-full;
     @apply mx-auto overflow-y-scroll;
     @apply flex flex-col gap-2;
-    @apply border shadow-xl rounded-lg;
+    @apply border rounded-lg;
     @apply p-5;
   }
 }
 
-@screen md {
+@screen lg {
   #chat-wrapper {
-    @apply grid-cols-2;
+    @apply w-1/4;
   }
 }

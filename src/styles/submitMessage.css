@@ -1,0 +1,20 @@
+#message-form {
+  @apply m-auto p-5 border rounded-lg w-full;
+  @apply flex flex-col;
+
+  .inputs {
+    @apply flex gap-2;
+  }
+  input {
+    @apply rounded-lg shadow border px-4 py-2 w-full;
+    @apply outline-none;
+  }
+
+  button {
+    @apply font-semibold px-4 py-2 uppercase rounded bg-green-400 text-white outline-none;
+  }
+
+  small {
+    @apply text-gray-600;
+  }
+}

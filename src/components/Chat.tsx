@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useQuery, useSubscription } from '@apollo/client'
 import { Message as IMessage } from '../interfaces/Message'
 import { MESSAGE_QUERY } from '../graphql/queries'
@@ -23,6 +23,14 @@ export const Chat = () => {
     }
   }, [sData])
 
+  const messagesEndRef = useRef<HTMLDivElement | null>(null)
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  useEffect(scrollToBottom, [chat])
+
   if (qLoading) return <h4>loading</h4>
 
   return (
@@ -31,7 +39,9 @@ export const Chat = () => {
         {chat.map((message) => (
           <Message key={message.id} message={message} />
         ))}
+        <div ref={messagesEndRef} />
       </ol>
+
       <SubmitMessage />
     </div>
   )

@@ -12,27 +12,35 @@ export const SubmitMessage = () => {
     setMessage(e.target.value)
   }
 
-  const onSubmit = async () => {
+  const onSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault()
     try {
       const variables = {
         sender: user,
         message,
       }
       await createMessage({ variables })
+
+      setMessage('')
     } catch (error) {}
   }
 
   return (
-    <form onSubmit={onSubmit} id='message-form'>
-      <input
-        disabled={loading}
-        autoFocus
-        type='text'
-        placeholder='Type a message...'
-        value={message}
-        onChange={onChange}
-      />
-      {message && <small>Press ENTER to proceed</small>}
+    <form id='message-form'>
+      <div className='inputs'>
+        <input
+          disabled={loading}
+          autoFocus
+          type='text'
+          placeholder='Type a message...'
+          value={message}
+          onChange={onChange}
+        />
+        <button onClick={onSubmit}>Submit</button>
+      </div>
+      {message && <small>Press ENTER to send</small>}
     </form>
   )
 }
